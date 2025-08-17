@@ -28,22 +28,19 @@ const ModeToggle = () => {
 				{theme === 'system' ? (<SunMoon/>) : theme === 'dark' ? (<MoonIcon />) : (<SunIcon />)}
 			</Button>
 		</DropdownMenuTrigger>
-		<DropdownMenuContent className={`${theme === 'light' ? 'bg-white' : 'bg-zinc-900'} shadow-md`}>
+		<DropdownMenuContent>
 			<DropdownMenuLabel>Appearance</DropdownMenuLabel>
 			<DropdownMenuSeparator />
 			<DropdownMenuCheckboxItem checked={theme === 'system'} onClick={
-				() => setTheme('system')
-			}>
+				() => setTheme('system')} className='cursor-pointer'>
 				System
 			</DropdownMenuCheckboxItem>
 			<DropdownMenuCheckboxItem checked={theme === 'dark'} onClick={
-				() => setTheme('dark')
-			}>
+				() => setTheme('dark')} className='cursor-pointer'>
 				Dark
 			</DropdownMenuCheckboxItem>
 			<DropdownMenuCheckboxItem checked={theme === 'light'} onClick={
-				() => setTheme('light')
-			}>
+				() => setTheme('light')} className='cursor-pointer'>
 				Light
 			</DropdownMenuCheckboxItem>
 			<DropdownMenuSeparator />

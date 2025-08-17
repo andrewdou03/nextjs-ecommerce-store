@@ -72,7 +72,7 @@ const UserButtonClient = ({ session }: { session: Session | null }) => {
             <form action={signOutUser}>
               <button
                 type='submit'
-                className='w-full py-4 px-2 h-4 justify-start text-left hover:bg-muted'
+                className='w-full px-2 py-1 h-4 justify-start text-left hover:bg-muted text-sm cursor-pointer'
               >
                 Sign Out
               </button>

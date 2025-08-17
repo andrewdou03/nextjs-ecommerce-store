@@ -19,8 +19,8 @@ const SignUpForm = () => {
 	const SignUpButton = () => {
 		const { pending } = useFormStatus();
 		return (
-			<Button className='bg-black text-white w-full' disabled={pending}>
-				{pending ? 'Submitting...' : 'Sign In'}
+			<Button className='bg-black text-white w-full cursor-pointer' disabled={pending}>
+				{pending ? 'Submitting...' : 'Sign Up'}
 			</Button>
 		);
 	}

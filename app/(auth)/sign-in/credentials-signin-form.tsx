@@ -20,7 +20,7 @@ const CredentialsSignInForm = () => {
 	const SignInButton = () => {
 		const { pending } = useFormStatus();
 		return (
-			<Button className='bg-black text-white w-full' disabled={pending}>
+			<Button className='bg-black text-white w-full cursor-pointer' disabled={pending}>
 				{pending ? 'Signing In...' : 'Sign In'}
 			</Button>
 		);
