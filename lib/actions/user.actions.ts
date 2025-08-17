@@ -13,6 +13,7 @@ import { revalidatePath } from "next/cache";
 import { Prisma } from "@prisma/client";
 import { PAGE_SIZE } from "@/lib/constants";
 import { getMyCart } from "@/lib/actions/cart.actions";
+import { redirect } from "next/navigation";
 
 export async function signInWithCredentials(
   _prev: unknown,
@@ -42,15 +43,15 @@ export async function signInWithCredentials(
 
 // Sign user out
 export async function signOutUser() {
-  // get current users cart and delete it so it does not persist to next user
+  // get current users cart and delete it so it does not persist to next user;
   const currentCart = await getMyCart();
-
   if (currentCart?.id) {
     await prisma.cart.delete({ where: { id: currentCart.id } });
   } else {
-    console.warn('No cart found for deletion.');
+    console.warn("No cart found for deletion.");
   }
-  await signOut();
+  await signOut({ redirect: false }); // don’t let next-auth redirect
+  redirect("/"); // force a page refresh by redirecting
 }
 
 export async function signUpUser(prevState: unknown, formData: FormData) {

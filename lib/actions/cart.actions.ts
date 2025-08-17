@@ -51,6 +51,7 @@ export async function addItemToCart(data: CartItem) {
     if (!cart) {
       // Create new cart object
       const newCart = insertCartSchema.parse({
+        productId: item.productId,
         userId: userId,
         items: [item],
         sessionCartId: sessionCartId,
@@ -113,6 +114,7 @@ export async function addItemToCart(data: CartItem) {
       };
     }
   } catch (error) {
+    console.log("Add to cart error: ", error);
     return {
       success: false,
       message: formatError(error),
