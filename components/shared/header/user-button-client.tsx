@@ -11,8 +11,9 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { UserIcon } from 'lucide-react';
+import { Session } from 'next-auth';
 
-const UserButtonClient = ({ session }: { session: any }) => {
+const UserButtonClient = ({ session }: { session: Session | null }) => {
   if (!session) {
     return (
       <Button asChild>
